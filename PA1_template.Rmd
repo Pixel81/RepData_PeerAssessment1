@@ -1,25 +1,40 @@
----
-title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
-    keep_md: true
----
+# Reproducible research  
+## Peer assessment 1  
+By Pixel81  
+date: "Monday, July 13, 2015"  
+================================================================================
 
+This document his a reproducible research made in the Coursera class
+'Reproducible research'.  
+In order to be readable, echo is set on true for all the code.
 
-## Loading and preprocessing the data
+```{r setoptions,echo=TRUE}
+opts_chunk$set(echo=TRUE, results='asis')
+```
 
+### Loading and preprocessing the data
 
+First, we load the data from the url.
 
-## What is mean total number of steps taken per day?
+```{r}
+fileUrl <- "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip"
 
+```
 
+### What is mean total number of steps taken per day ?
 
-## What is the average daily activity pattern?
+```{r}
+```
 
+### What is the average daily activity pattern ?
 
+```{r}
+```
 
-## Imputing missing values
+### Imputing missing values
 
+```{r}
+```
 
+### Are there differences in activity patterns between weekdays and weekends ?
 
-## Are there differences in activity patterns between weekdays and weekends?

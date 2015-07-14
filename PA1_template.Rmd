@@ -1,30 +1,81 @@
-# Reproducible research  
+# Reproducible Research  
 ## Peer assessment 1  
 By Pixel81  
-date: "Monday, July 13, 2015"  
+Date: "Monday, July 13, 2015"  
 ================================================================================
 
-This document his a reproducible research made in the Coursera class
+This document is a reproducible research made in the Coursera class
 'Reproducible research'.  
 In order to be readable, echo is set on true for all the code.
 
-```{r setoptions,echo=TRUE}
-opts_chunk$set(echo=TRUE, results='asis')
-```
-
 ### Loading and preprocessing the data
 
-First, we load the data from the url.
+To well work, all the work is done in the R Markdown file folder. The zip file
+need to be download in this folder to properly work.  
+First, we unzip the data from the zip file and load it into a variable.
+```{r loaddata,echo = TRUE}
 
-```{r}
-fileUrl <- "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip"
+if(!file.exists('activity.csv')){ 
+        unzip('repdata-data-activity.zip') 
+        } # Unzip file
+activity <- read.csv('activity.csv') # Load data in variable
+```
 
+We make a summary to have a quick overview of the file content.
+```{r summary,echo = TRUE}
+summary(activity)
+```
+
+To correctly interpretate date, we convert it with the POSIXct function. We also
+add a date.time variable with the interval of 5 minutes in the date stream.
+```{r convertdate,echo = TRUE}
+activity$date <- as.POSIXct(activity$date,
+                            format='%Y-%m-%d',
+                            tz='GMT')
+time <- formatC(activity$interval / 100, 2, format='f')
+activity$date.time <- as.POSIXct(paste(activity$date, time),
+                                 format='%Y-%m-%d %H.%M',
+                                 tz='GMT')
+```
+
+Just take a look at our new content of activity.
+```{r head,echo = TRUE}
+head(activity)
 ```
 
 ### What is mean total number of steps taken per day ?
+1. Calculate the total number of steps taken per day
+```{r stepsperday, echo = TRUE}
+total.steps <- tapply(activity$steps, activity$date, sum, na.rm=TRUE)
+```
+
+2. Make a histogram of the total number of steps taken each day
+```{r}
+library(ggplot2)
+ggplot(total.steps, aes(x=total.steps)) 
++ geom_histogram(binwidth=30, colour="white")
+
+```
 
 ```{r}
+plot(unique(activity$date),
+     total.steps,
+     main = "Steps taken each day",
+     xlab = "Date",
+     ylab = "Frequency (steps)",
+     type = "h",
+     lwd = 8,
+     col = "violet")
 ```
+
+3. Calculate and report the mean and median of the total number of steps taken per day.  
+The mean calculation is rounded to fit on report.
+```{r}
+mean.steps <- round(mean(total.steps),0)
+median.steps <- median(total.steps)
+```
+
+The mean is `r mean.steps` and the median is `r median.steps`.
 
 ### What is the average daily activity pattern ?
 
@@ -38,3 +89,5 @@ fileUrl <- "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip"
 
 ### Are there differences in activity patterns between weekdays and weekends ?
 
+```{r}
+```

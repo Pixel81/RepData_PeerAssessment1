@@ -2,7 +2,7 @@
 ## Peer assessment 1  
 *By Pixel81*  
 *Creation date: "2015.07.13"* 
-*Last update: "2015.07.19"* 
+
 ================================================================================
 
 This document is a reproducible research made in the Coursera class
@@ -269,7 +269,7 @@ The average is neutral (previous value: **10766**), on median it's insignificant
 **1. Create a new factor variable in the dataset with two levels - "weekday" and "weekend" indicating whether a given date is a weekday or weekend day.**
 
 We use the weekdays() function to split days in two different classes, weekday and weekend. This split is put in a new variable, day_type.  
-First we duplicate date variable into day_type variable
+First we duplicate date variable into day_type variable.
 
 ```r
 activity_2$day_type <- activity_2$date

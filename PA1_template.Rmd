@@ -7,7 +7,7 @@ output:
 ## Peer assessment 1  
 *By Pixel81*  
 *Creation date: "2015.07.13"* 
-*Last update: "2015.07.19"* 
+
 ================================================================================
 
 This document is a reproducible research made in the Coursera class

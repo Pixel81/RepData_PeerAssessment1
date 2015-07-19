@@ -65,7 +65,8 @@ img {
 <h1>Reproducible Research</h1>
 <div id="peer-assessment-1" class="section level2">
 <h2>Peer assessment 1</h2>
-<p><em>By Pixel81</em><br /><em>Creation date: “2015.07.13”</em> <em>Last update: “2015.07.19”</em> ================================================================================</p>
+<p><em>By Pixel81</em><br /><em>Creation date: “2015.07.13”</em></p>
+<p>================================================================================</p>
 <p>This document is a reproducible research made in the Coursera class <em>‘Reproducible research’</em>.<br />It is available on my GitHub account (<a href="https://github.com/Pixel81/RepData_PeerAssessment1">link</a>).</p>
 <div id="prelimenary-actions" class="section level3">
 <h3>Prelimenary actions</h3>
@@ -220,7 +221,7 @@ median_steps_2 &lt;- format(median(total_steps_2$steps,na.rm = TRUE),
 <div id="v---are-there-differences-in-activity-patterns-between-weekdays-and-weekends" class="section level3">
 <h3>V - Are there differences in activity patterns between weekdays and weekends ?</h3>
 <p><strong>1. Create a new factor variable in the dataset with two levels - “weekday” and “weekend” indicating whether a given date is a weekday or weekend day.</strong></p>
-<p>We use the weekdays() function to split days in two different classes, weekday and weekend. This split is put in a new variable, day_type.<br />First we duplicate date variable into day_type variable</p>
+<p>We use the weekdays() function to split days in two different classes, weekday and weekend. This split is put in a new variable, day_type.<br />First we duplicate date variable into day_type variable.</p>
 <pre class="r"><code>activity_2$day_type &lt;- activity_2$date</code></pre>
 <p>Then we create a function to convert day_type into a two-classes variable.</p>
 <pre class="r"><code>weeksplit &lt;- function(date) {
